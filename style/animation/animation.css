@@ -1,0 +1,97 @@
+ 
+/*the animation effect start*/
+.rotate{
+    animation: rotate 2s;
+}
+
+.fadeIn{
+    animation: fadeIn 2s;
+}
+
+.fadeOut{
+    animation: fadeOut 2s;
+}
+
+.zoomIn{
+    animation: zoomIn 2s;
+}
+
+.zoomOut{
+    animation: zoomOut 2s;
+}
+
+.slideToLeft{
+    animation: slideToLeft 2s; 
+}
+
+.slideToRight{
+    animation: slideToRight 2s; 
+}
+
+.slideToTop{
+    animation: slideToTop 2s; 
+}
+
+.slideToBottom{
+    animation: slideToBottom 2s;
+}
+
+.flipX{
+    animation: flipX 2s;
+}
+
+.flipY{
+    animation: flipY 2s;
+}
+
+.rollIn{
+    animation: rollIn 2s;
+}
+
+.rollOut{
+    animation: rollOut 2s;
+} 
+
+.swapLeft{
+    animation: swapLeft 1.5s;
+}
+
+.swapRight{
+    animation: swapRight 1.5s;
+}
+
+.brake{
+    animation: brake 2s;
+}
+
+.swing{
+    animation: swing 2s;
+    transform-origin: 50% 0; 
+}
+
+.tada{
+    animation: tada 1.5s;
+    transform-origin: 50% 50%;
+}
+
+.rubber{
+    animation: rubber 1.5s;
+}
+
+.jello{
+    animation: jello 1s;
+}
+
+.wobble{
+    animation: wobble 1s;
+    transform-origin: 50% 100%;
+}
+
+.shake{
+    animation: shake 1s;
+}
+
+.bounce{
+    animation: bounce 1.5s;
+    animation-timing-function: ease-out;
+}

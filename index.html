@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue drag compoments demo</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="scripts/vue.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script> 
+	<link rel="stylesheet" type="text/css" href="style/animation/animation.css">
+	<link rel="stylesheet" type="text/css" href="style/animation/animation-keyframes.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+<div id="content">
+	<section id="init">
+		<select>
+			<option>rotate</option>
+			<option>flipX</option>
+			<option>zoomIn</option>
+			<option>rubber</option>                                                                                                   
+		</select> 
+
+		<button id="add" v-on:click="addAnimation">Add</button>
+	</section>
+
+    <script type="text/javascript">
+    	<input type="file">
+
+    	<div>
+    	<input placeholder="edit & drag it" v-model="message">       
+    	</div>
+    </script>
+
+	<section class="example-page">
+		<div id="show-page">
+			
+		</div>
+
+		<button type="submit" class="submit button">Submit</button>
+	</section>
+</div>
+</body>
+</html>
