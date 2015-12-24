@@ -3,40 +3,36 @@
 <head>
 	<title>Vue drag compoments demo</title>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="scripts/vue.js"></script>
-	<script type="text/javascript" src="scripts/script.js"></script> 
+	<script type="text/javascript" src="scripts/vue.js"></script> 
 	<link rel="stylesheet" type="text/css" href="style/animation/animation.css">
 	<link rel="stylesheet" type="text/css" href="style/animation/animation-keyframes.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
 <div id="content">
-	<section id="init">
-		<select>
-			<option>rotate</option>
-			<option>flipX</option>
-			<option>zoomIn</option>
-			<option>rubber</option>                                                                                                   
-		</select> 
 
-		<button id="add" v-on:click="addAnimation">Add</button>
-	</section>
 
-    <script type="text/javascript">
-    	<input type="file">
+    <div id="first">
+    	<p class="title">你想创建哪种场景：</p>
+    	<select>
+    		<option value="several">多屏</option> 
+    		<option value="singel">单屏</option>
+    	</select>
 
-    	<div>
-    	<input placeholder="edit & drag it" v-model="message">       
-    	</div>
-    </script>
+    	<div class="screenNum" v-show="several">
+    		   	<p class="subtitle">你要创建多少屏？</p>
+    		   	<select>
+    		   		<option v-for="n in 5">{{ n }}</option>
+    		   	</select>
+        </div>
 
-	<section class="example-page">
-		<div id="show-page">
-			
-		</div>
+    	</br>
+    	<button class="button next">Next</button>
+    </div>
 
-		<button type="submit" class="submit button">Submit</button>
-	</section>
+ 
 </div>
 </body>
+<script type="text/javascript" src="scripts/script.js"></script> 
+<script type="text/javascript" src="scripts/vue-script.js"></script> 
 </html>
