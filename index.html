@@ -12,25 +12,43 @@
 <div id="content">
 
 
-    <div id="first">
-    	<p class="title">你想创建哪种场景：</p>
-    	<select>
-    		<option value="several">多屏</option> 
-    		<option value="singel">单屏</option>
-    	</select>
-
-    	<div class="screenNum" v-show="several">
-    		   	<p class="subtitle">你要创建多少屏？</p>
-    		   	<select>
+    <div id="selectScreen"> 
+    	<div class="screenNum">
+    		   	<p class="title">你要创建多少屏？</p>
+    		   	<select v-model="selectNum">
     		   		<option v-for="n in 5">{{ n }}</option>
     		   	</select>
-        </div>
+    		   	<button class="button go" v-on:click="addScreen">Go!</button>
+        </div>  
+        <!--every screen's detail choice template-->
+    	 <script type="text/x-template" id="screenDetail">
+    	 	<ul>
+    	 		<li>
+    	 			<select>
+    	 				<option>rotate</option>
+    	 				<option>filpX</option>
+    	 				<option>zoomIn</option>
+    	 				<option>rollIn</option>
+    	 			</select>
+    	 		</li>
 
-    	</br>
-    	<button class="button next">Next</button>
+    	 		<li>
+    	 			<p>Message Edit:<input type="text" placeholder="edit here"></input></p>
+    	 		</li>
+
+    	 		<li>
+    	 			<p>Upload a image:<input type="file"></input></p>
+    	 		</li>
+    	 	</ul>
+    	 </script>
     </div>
 
- 
+    <div class="phone">
+    	<div class="showPage" >
+    		<div v-for="screen in screens" class="screen" id={{$index}} v-on:click="editScreenDetail"></div>
+    	</div>
+    </div>
+
 </div>
 </body>
 <script type="text/javascript" src="scripts/script.js"></script> 

@@ -91,7 +91,7 @@ input, select {
  
 /*---------------------Formal style start-------------------------*/
 #content{
-    width: 80%; 
+    width: 50%; 
     margin:0 auto; 
     margin-top: 10%;
     overflow: hidden;
@@ -99,18 +99,42 @@ input, select {
     font-weight: lighter; 
 }
 
-#first{
+#selectScreen{
     text-align: center; 
+    float: left;
 }
  
-#first select{
-    margin-top: 20px;
+#selectScreen select{ 
     width: 130px;
     height: 30px;
 }
 
-.next{
-    width: 100px;
-    margin-top: 100px;
+.go{
+    width: 100px; 
+    margin-left: 10px; 
+    margin-top: 10px;
 }
- 
+
+.phone{
+    background: url(../imgs/phone.png);
+    width: 300px;
+    height: 611px;
+    float: right;
+}
+
+.showPage{
+    position: relative;
+    background: #fff;
+    width: 270px;
+    height: 480px;
+    margin-top: 65px;
+    margin-left: 15px;
+}
+
+.screen{
+    background: #ccc;
+    width: 100px;
+    height: 100px;
+    border:1px solid #000;
+}
+
