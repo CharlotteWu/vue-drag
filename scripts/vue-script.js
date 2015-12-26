@@ -1,41 +1,37 @@
- /*Vue.compoment = ('screenDetailEdit',{
-	template:'#screenDetail',
+ Vue.component('edit',{
+	template:'#screenEdit',
 	props:{
-
+		words:Object 
+	}, 
+	 
+	methods:{
+		addWord:function(){   
+		   this.words.push();
+		},
+		removeWord:function(){
+			this.words.pop();
+		},
 	}
+	 
+});
 
-}) */
 
 
 new Vue({
 	el:'#content',
-	data:{
-		 selectNum:0, 
-		 screens:[]
+	data:{ 
+		 screens:[], 
+		 times:1
 	},
 	methods:{
-		addScreen:function(){
-			var addScreen = this.selectNum; 
-			var nowScreenNum = this.screens.length; 
-			var gap = 0;
-			
-			if(nowScreenNum == 0){
-			  for(var i=0; i<addScreen; i++){
-				this.screens.push(i);
-			  } 
-			}else if(nowScreenNum > addScreen){
-				gap = nowScreenNum - addScreen;
-				for(var i=gap; i>0; i--){
-                  this.screens.pop(i);
-				}
-			}else if(nowScreenNum < addScreen){
-				gap = addScreen - nowScreenNum;
-				for(var i=gap; i<addScreen; i++){
-                  this.screens.push(i);
-				}
-			}
-                       
-
+		addScreen:function(times){   
+			this.screens.push(times);  
 		},
+
+		removeScreen:function(times){
+			this.screens.pop(times);
+		}, 
+		 
+
 	}
 })

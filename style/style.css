@@ -71,13 +71,14 @@ input, select {
 
 
 /*--------------------------little things style-----------------------------------*/
-.button{
-    height: 40px;
+.button{ 
     border: 0; 
     font-size: 17px;
     color: #fff;
     background: #00A2E8;
 }
+
+ 
 
 .title{
     font-size: 25px;
@@ -111,6 +112,7 @@ input, select {
 
 .go{
     width: 100px; 
+    height: 40px;
     margin-left: 10px; 
     margin-top: 10px;
 }
@@ -133,8 +135,32 @@ input, select {
 
 .screen{
     background: #ccc;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border:1px solid #000;
+    position: relative;
+}
+
+.edit{
+    border:1px dashed #aaa;
+    margin-top: 10px;
+    text-align: left;  
+    padding: 5px 10px 5px 10px;
+}
+
+.edit li{
+    line-height: 25px;
+}
+
+.light{
+    width: 80px;
+    height: 30px;
+}
+
+.word{
+    width: 50px;
+    height: 20px;
+    background: red;
+    position: absolute;
 }
 

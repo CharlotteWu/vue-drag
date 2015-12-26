@@ -11,18 +11,22 @@
 <body>
 <div id="content">
 
-
     <div id="selectScreen"> 
     	<div class="screenNum">
-    		   	<p class="title">你要创建多少屏？</p>
-    		   	<select v-model="selectNum">
-    		   		<option v-for="n in 5">{{ n }}</option>
-    		   	</select>
-    		   	<button class="button go" v-on:click="addScreen">Go!</button>
+    		   	<p class="title">创建屏数</p> 
+    		   	<button class="button go" v-on:click="addScreen">Add</button>
+    		   	<button class="button go" v-on:click="removeScreen">Remove</button>
         </div>  
+
+        <div class="editArea">
+        	<edit v-for="screen in screens"> 
+        	</edit>
+        </div>
+         
         <!--every screen's detail choice template-->
-    	 <script type="text/x-template" id="screenDetail">
-    	 	<ul>
+    	<script type="text/x-template" id="screenEdit"> 
+    	 	<ul class="edit" >  
+    	 	<h6>第{{ $index }}</h6>
     	 		<li>
     	 			<select>
     	 				<option>rotate</option>
@@ -30,22 +34,28 @@
     	 				<option>zoomIn</option>
     	 				<option>rollIn</option>
     	 			</select>
+
+    	 			<button class="button light" v-on:click="addWord" >Add</button>
     	 		</li>
 
     	 		<li>
-    	 			<p>Message Edit:<input type="text" placeholder="edit here"></input></p>
+    	 			<p>Message Edit:<input type="text" placeholder="edit here" ></input></p>
     	 		</li>
 
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
     	 		</li>
+
     	 	</ul>
-    	 </script>
+    	</script>
+ 
     </div>
 
     <div class="phone">
     	<div class="showPage" >
-    		<div v-for="screen in screens" class="screen" id={{$index}} v-on:click="editScreenDetail"></div>
+    		<div v-for="screen in screens" class="screen" id={{$index}} >
+    			<input v-for="word in words" class="word"></input>
+    		</div>
     	</div>
     </div>
 
