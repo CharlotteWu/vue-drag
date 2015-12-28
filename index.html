@@ -14,19 +14,13 @@
     <div id="selectScreen"> 
     	<div class="screenNum">
     		   	<p class="title">创建屏数</p> 
-    		   	<button class="button go" v-on:click="addScreen">Add</button>
-    		   	<button class="button go" v-on:click="removeScreen">Remove</button>
+    		   	<button class="button go" v-on:click="addScreen">Add</button> 
         </div>  
 
         <div class="editArea">
-        	<edit v-for="screen in screens"> 
-        	</edit>
-        </div>
-         
-        <!--every screen's detail choice template-->
-    	<script type="text/x-template" id="screenEdit"> 
-    	 	<ul class="edit" >  
-    	 	<h6>第{{ $index }}</h6>
+        	<div >
+        		<ul class="edit" v-for="screen in screens" v-bind:index="$index">   
+    	 	    <h6>第{{ $index }}屏</h6>
     	 		<li>
     	 			<select>
     	 				<option>rotate</option>
@@ -35,7 +29,7 @@
     	 				<option>rollIn</option>
     	 			</select>
 
-    	 			<button class="button light" v-on:click="addWord" >Add</button>
+    	 			<button class="button light" v-on:click="addContent">Add</button>
     	 		</li>
 
     	 		<li>
@@ -46,19 +40,27 @@
     	 			<p>Upload a image:<input type="file"></input></p>
     	 		</li>
 
-    	 	</ul>
-    	</script>
- 
+    	 		</br>
+    	 		<button class="button go" v-on:click="removeScreen(screen)">Remove</button>
+    	 	</ul> 
+        	</div>
+        </div>
+         
+        <!--every screen's detail choice template-->
+    	 
+    	 	 
     </div>
 
+
+    <!--root start from here-->
     <div class="phone">
-    	<div class="showPage" >
-    		<div v-for="screen in screens" class="screen" id={{$index}} >
-    			<input v-for="word in words" class="word"></input>
+    	<div class="showPage">
+    		  <div v-for="screen in screens" class="screen" id={{$index}} >  
+    		    <input v-for="content in screens.children" placeholder="haha you already been here"></input> 
     		</div>
     	</div>
     </div>
-
+{{screens | json}}
 </div>
 </body>
 <script type="text/javascript" src="scripts/script.js"></script> 

@@ -1,36 +1,32 @@
- Vue.component('edit',{
-	template:'#screenEdit',
-	props:{
-		words:Object 
-	}, 
-	 
-	methods:{
-		addWord:function(){   
-		   this.words.push();
-		},
-		removeWord:function(){
-			this.words.pop();
-		},
-	}
-	 
-});
-
-
-
+ 
+//data model 
+var screens =  {};
+//vue component
+//screen component
+ 
+//edit area component                    
+ 
+ 
+//init Vue 
 new Vue({
 	el:'#content',
 	data:{ 
-		 screens:[], 
+		 screens:screens,
 		 times:1
 	},
 	methods:{
-		addScreen:function(times){   
-			this.screens.push(times);  
+		addScreen:function(){  
+		   Vue.set(this.screens,'children',[]); 
+		},  
+		addContent:function(){    
+		   this.screens.children.push({content:'haha'});
 		},
-
-		removeScreen:function(times){
-			this.screens.pop(times);
-		}, 
+		removeWord:function(content){
+		   this.screens.children.$remove(content);
+		},
+		removeScreen:function(screen){
+		   this.screens.$remove(screen);
+		}
 		 
 
 	}
