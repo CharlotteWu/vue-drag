@@ -13,54 +13,55 @@
 
     <div id="selectScreen"> 
     	<div class="screenNum">
-    		   	<p class="title">创建屏数</p> 
+    		   	<p class="title">创建新屏</p> 
     		   	<button class="button go" v-on:click="addScreen">Add</button> 
         </div>  
 
-        <div class="editArea">
-        	<div >
-        		<ul class="edit" v-for="screen in screens" v-bind:index="$index">   
+        <div class="editArea"> 
+        		<ul class="edit" v-for="screen in screens" >   
     	 	    <h6>第{{ $index }}屏</h6>
     	 		<li>
-    	 			<select>
-    	 				<option>rotate</option>
+    	 			<select >
+    	 				<option >rotate</option>
     	 				<option>filpX</option>
     	 				<option>zoomIn</option>
     	 				<option>rollIn</option>
-    	 			</select>
-
-    	 			<button class="button light" v-on:click="addContent">Add</button>
+    	 			</select> 
+    	 			<button class="button light" v-on:click="addContent(screen)">Add</button>
     	 		</li>
 
     	 		<li>
-    	 			<p>Message Edit:<input type="text" placeholder="edit here" ></input></p>
+    	 			<p>Message Edit:<input type="text" placeholder="edit here"> </input></p>
     	 		</li>
 
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
+    	 			<p>
+    	 			   Or enter a img link:<input type="text" name="img-src"></input>
+    	 			   <button class="button">Upload Img</button>
+    	 			</p>
     	 		</li>
 
     	 		</br>
     	 		<button class="button go" v-on:click="removeScreen(screen)">Remove</button>
-    	 	</ul> 
-        	</div>
-        </div>
-         
-        <!--every screen's detail choice template-->
-    	 
-    	 	 
+    	 	    </ul>  
+        </div> 
+        <!--every screen's detail choice template--> 
     </div>
 
 
     <!--root start from here-->
     <div class="phone">
     	<div class="showPage">
-    		  <div v-for="screen in screens" class="screen" id={{$index}} >  
-    		    <input v-for="content in screens.children" placeholder="haha you already been here"></input> 
+    		<div v-for="screen in screens" class="screen" id={{$index}}>  
+    		    <p v-for="content in screen"  
+    		       v-on:dblclick="removeContent(content)"> 
+    		       haha
+    		    </p>  
     		</div>
     	</div>
     </div>
-{{screens | json}}
+<pre>{{screens | json}}</pre>
 </div>
 </body>
 <script type="text/javascript" src="scripts/script.js"></script> 
