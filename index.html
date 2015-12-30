@@ -18,20 +18,32 @@
         </div>  
 
         <div class="editArea"> 
-        		<ul class="edit" v-for="screen in screens" >   
+        		<ul class="edit" v-for="screen in screens" id="screen{{ $index }}">   
     	 	    <h6>第{{ $index }}屏</h6>
+    	 	    <li>
+    	 	    	Background:<input type="file"></input></p>
+    	 			<p>
+    	 			   Or enter a img link:<input type="text" name="img-src"></input>
+    	 			   <button class="button">Upload Img</button>
+    	 			</p>
+    	 	    </li>
+
     	 		<li>
-    	 			<select >
-    	 				<option >rotate</option>
-    	 				<option>filpX</option>
+    	 			<select>
+    	 				<option>rotate</option>
+    	 				<option>flipX</option>
     	 				<option>zoomIn</option>
     	 				<option>rollIn</option>
     	 			</select> 
-    	 			<button class="button light" v-on:click="addContent(screen)">Add</button>
+    	 			<button class="button light" v-on:click="addWord(screen)">Add</button>
     	 		</li>
 
+
     	 		<li>
-    	 			<p>Message Edit:<input type="text" placeholder="edit here"> </input></p>
+    	 		    <p v-for="content in screen">
+    	 		        <input v-model="content"></input>
+    	 		        <span class="button delete" v-on:click="removeWord(screen,content)">X</span>
+    	 		    </p> 
     	 		</li>
 
     	 		<li>
@@ -43,21 +55,23 @@
     	 		</li>
 
     	 		</br>
+
     	 		<button class="button go" v-on:click="removeScreen(screen)">Remove</button>
     	 	    </ul>  
         </div> 
         <!--every screen's detail choice template--> 
     </div>
-
-
+  
     <!--root start from here-->
     <div class="phone">
     	<div class="showPage">
     		<div v-for="screen in screens" class="screen" id={{$index}}>  
-    		    <p v-for="content in screen"  
-    		       v-on:dblclick="removeContent(content)"> 
-    		       haha
-    		    </p>  
+    		    <span 
+    		       v-for="content in screen"  
+    		       v-on:dblclick="removeWord(content)">
+    		       {{ content }}
+    		    </span> 
+    		    <!--<img src=" " class="{{ }}">-->
     		</div>
     	</div>
     </div>

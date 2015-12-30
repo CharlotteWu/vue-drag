@@ -1,4 +1,9 @@
- 
+/*some basic element style*/
+img,a,span{
+    display: inline-block;
+    padding: 5% 3% 5% 3%;
+}
+
 /*the animation effect start*/
 .rotate{
     animation: rotate 2s;

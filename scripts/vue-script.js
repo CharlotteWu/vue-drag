@@ -1,6 +1,6 @@
  
 //data model 
-var screens =  [];
+var screens = [];
 //vue component
 //screen component
  
@@ -11,24 +11,20 @@ var screens =  [];
 new Vue({
 	el:'#content',
 	data:{ 
-		 screens:screens,
-		 times:1
+		 screens:screens 
 	},
 	methods:{
 		addScreen:function(){ 
-		  screens.push(this.screens.$set('screen',[]));
+		  screens.push([]);
 		},  
-		addContent:function(screen){    
-		   screen.push({content:'haha'});
+		addWord:function(screen){    
+		  screen.push({content:'gaga'});
 		}, 
-		editContent:function(){
- 
-		},
-		removeContent:function(content){
+		removeWord:function(screen,content){
 		   screen.$remove(content);
 		},
 		removeScreen:function(screen){
-		   screens.$remove(screen);
+		  screens.$remove(screen);
 		} 
 	}
 })
