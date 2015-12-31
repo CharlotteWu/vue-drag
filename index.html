@@ -14,19 +14,21 @@
     <div id="selectScreen"> 
     	<div class="screenNum">
     		   	<p class="title">创建新屏</p> 
-    		   	<button class="button go" v-on:click="addScreen">Add</button> 
+    		   	<button class="button go" @click="addScreen">Add</button> 
         </div>  
 
         <div class="editArea"> 
         		<ul class="edit" v-for="screen in screens" id="screen{{ $index }}">   
     	 	    <h6>第{{ $index }}屏</h6>
+
     	 	    <li>
     	 	    	Background:<input type="file"></input></p>
     	 			<p>
-    	 			   Or enter a img link:<input type="text" name="img-src"></input>
-    	 			   <button class="button">Upload Img</button>
+    	 		    	Or enter a img link:<input type="text"></input>
+    	 			    <button class="button" @click="addImg(screen)">Upload Img</button>
     	 			</p>
     	 	    </li>
+    	 	    <!--http://p4.music.126.net/5MSBV-uxRl65dgikDWibLQ==/7710875046296462.jpg-->
 
     	 		<li>
     	 			<select>
@@ -35,43 +37,40 @@
     	 				<option>zoomIn</option>
     	 				<option>rollIn</option>
     	 			</select> 
-    	 			<button class="button light" v-on:click="addWord(screen)">Add</button>
-    	 		</li>
-
+    	 			<button class="button light" @click="addWord(screen)">Add</button>
+    	 		</li> 
 
     	 		<li>
-    	 		    <p v-for="content in screen">
-    	 		        <input v-model="content"></input>
-    	 		        <span class="button delete" v-on:click="removeWord(screen,content)">X</span>
+    	 		    <p v-for="obj in screen">
+    	 		        <input v-model="obj.content"></input>
+    	 		        <span class="button delete" @click="removeWord(screen,content)">X</span>
     	 		    </p> 
     	 		</li>
 
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
     	 			<p>
-    	 			   Or enter a img link:<input type="text" name="img-src"></input>
+    	 			   Or enter a img link:<input type="text"></input>
     	 			   <button class="button">Upload Img</button>
     	 			</p>
-    	 		</li>
-
+    	 		</li> 
     	 		</br>
 
-    	 		<button class="button go" v-on:click="removeScreen(screen)">Remove</button>
+    	 		<button class="button go" @click="removeScreen(screen)">Remove</button>
     	 	    </ul>  
         </div> 
         <!--every screen's detail choice template--> 
     </div>
-  
+ 
     <!--root start from here-->
     <div class="phone">
     	<div class="showPage">
     		<div v-for="screen in screens" class="screen" id={{$index}}>  
     		    <span 
-    		       v-for="content in screen"  
-    		       v-on:dblclick="removeWord(content)">
-    		       {{ content }}
+    		       v-for="obj in screen">
+    		       {{ obj.content }}
     		    </span> 
-    		    <!--<img src=" " class="{{ }}">-->
+    		     
     		</div>
     	</div>
     </div>
