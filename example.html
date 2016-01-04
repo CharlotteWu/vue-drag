@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue show page</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<!--第一种-->
+<div id="content">
+	<h1 id="title">Vue show page</h1>
+	<audio src="" loop="" autoplay="" display=""></audio>
+	<!--每页元素-->
+	<div style="background-image: url()">
+		<span id="" display="" top="" left="" z-index="" class="" style="">hahaha</span>
+		<img id="" src="" display="" top="" left="" z-index="" class="" style="animation-delay: ;animation-duration: ">
+		<video src="" top="" left=""></video>
+	</div>
+</div> 
+
+<!--第二种-->
+<div id="content">
+	<h1 id="title">Vue show page</h1>
+	<img src="8.gif" v-if="{{BackgroundMusic.IsShowLogo}}"> 
+	<audio src="{{BackgroundMusic.Src}}" loop="{{BackgroundMusic.IsLoop}}" autoplay="{{BackgroundMusic.IsAutoStart}}"></audio>
+
+	<div v-for="page in Pages"> <!--Pages 页面列表数据-->
+
+		<div data-bgsrc="{{page.BackgroundImage}}" v-for="item in Elements" >  <!--单个Page数据-->
+			<template v-if="item.Type===0">
+				
+			</template>
+			<template v-if="item.Type==1">
+				
+			</template>
+			
+			<img  id="" src="" data-type="2" data-location="{ x: ,y: ,z: }" data-animation="{name: ,speed: ,delay: }" display="">
+			<video id="" src="" data-location="{ x: ,y: ,z: }" ></video>
+		</div>
+	</div>
+	<!--每页元素-->
+
+</div>
+
+<div style="display: none;">
+
+<div id="templateImage">
+	<img  id="" src="{{data.Src}}" data-type="2" data-location="{{ data.location}}" data-animation="{name: ,speed: ,delay: }" display="">
+</div>
+
+</div>
+<!---->
+</body>
+</html>
