@@ -62,17 +62,31 @@
         </div> 
         <!--every screen's detail choice template--> 
     </div>
- 
+
+
+    <!--screen template-->
+    <script type="text/x-template" id="screen-template">
+    	<div v-for="screen in screens" class="screen" id={{$index}}>  
+    		  <word :screen="screen"></word>
+    	</div>
+    </script>
+
+    <!--word template-->
+    <script type="text/x-template" id="word-template">
+    	<span v-for="content in screen">
+        	{{ content.content }}
+        </span>
+    </script>
+
+    <!--image template-->
+    <script type="text/x-tempalte" id="image-template">
+    	<img src="{{  }}" v-for="">
+    </script>
+
     <!--root start from here-->
     <div class="phone">
     	<div class="showPage">
-    		<div v-for="screen in screens" class="screen" id={{$index}}>  
-    		    <span 
-    		       v-for="content in screen">
-    		       {{ content.content }}
-    		    </span> 
-    		     
-    		</div>
+    		<screen :screens="screens"></screen>
     	</div>
     </div>
 <pre>{{screens | json}}</pre>

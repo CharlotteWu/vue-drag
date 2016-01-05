@@ -1,13 +1,44 @@
- 
+ Vue.config.debug = true;
 //data model 
 var screens = [
-
+    
+  
  ];
-//vue component
-//screen component
+//vue component 
  
-//edit area component                    
- 
+//screen component                    
+Vue.component('screen',{
+	template:'#screen-template', 
+	props:{
+		screens:Array
+	},
+	methods:{
+
+	},
+	components:{
+		'word':{
+			template:'#word-template',
+			props:{
+				screen:Array
+			},
+			methods:{
+
+			}
+		},
+
+		'image':{
+			template:'image-template',
+			props:{
+				screen:Array
+			},
+			methods:{
+
+			}
+
+		}
+	}
+  
+}) 
  
 //init Vue 
 new Vue({
