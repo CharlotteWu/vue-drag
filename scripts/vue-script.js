@@ -10,7 +10,8 @@ var screens = [
 Vue.component('screen',{
 	template:'#screen-template', 
 	props:{
-		screens:Array
+		screens:Array,
+		newAnimation:Object
 	},
 	methods:{
 
@@ -19,10 +20,12 @@ Vue.component('screen',{
 		'word':{
 			template:'#word-template',
 			props:{
-				screen:Array
+				screen:Array  
 			},
 			methods:{
+				 dragLocation:function (X,Y){
 
+				 }
 			}
 		},
 
@@ -40,27 +43,56 @@ Vue.component('screen',{
   
 }) 
  
+ 
 //init Vue 
 new Vue({
 	el:'#content',
 	data:{ 
-		 screens:screens 
+		 screens:screens,
+		 newAnimation:''
 	},
 	methods:{
 		addScreen:function(){ 
 		  screens.push([]);
 		},  
-		addWord:function(screen){    
-		  screen.push({content:'gaga'});
+		addWord:function(screen){ 
+		    screen.push({
+		  	    type:1, 
+		  	    content:'编辑内容',
+		  	    isDisplay:true,
+		  	    Location:{
+					X:10,
+					Y:10 
+				},
+				Animation:{
+					Name:this.newAnimation,
+					Speed:1000,
+					Delay:500
+				}
+		  });
+		  this.newAnimation='';
 		}, 
-		addImg:function(screen,imgsrc){
-			screen.push({img:imgsrc});
+		addImg:function(screen){
+			screen.push({
+				type:2, 
+				src:'haha',
+				isDisplay:true,
+				Location:{
+					X:10,
+					Y:10 
+				},
+				Animation:{
+					Name:'',
+					Speed:1000,
+					Delay:500
+				}
+			});
 		},
 		removeWord:function(screen,content){
 		   screen.$remove(content);
 		},
 		removeScreen:function(screen){
-		  screens.$remove(screen);
+		   screens.$remove(screen);
 		} 
 
 

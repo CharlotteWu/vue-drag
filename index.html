@@ -31,18 +31,17 @@
     	 	    <!--http://p4.music.126.net/5MSBV-uxRl65dgikDWibLQ==/7710875046296462.jpg-->
 
     	 		<li>
-    	 			<select>
+    	 			<select v-model="newAnimation">
     	 				<option>rotate</option>
     	 				<option>flipX</option>
     	 				<option>zoomIn</option>
-    	 				<option>rollIn</option>
+    	 				<option>bounce</option>
     	 			</select> 
     	 			<button class="button light" @click="addWord(screen)">Add</button>
     	 		</li> 
 
     	 		<li>
-    	 		    <p v-for="content in screen">
-    	 		    
+    	 		    <p v-for="content in screen">  
     	 		        <input v-model="content.content"></input>
     	 		        <span class="button delete" @click="removeWord(screen,content)">X</span>
     	 		    </p> 
@@ -51,7 +50,7 @@
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
     	 			<p>
-    	 			   Or enter a img link:<input type="text"></input>
+    	 			   Or enter a img link:<input type="text" name="newImg" v-model="newImg"></input>
     	 			   <button class="button">Upload Img</button>
     	 			</p>
     	 		</li> 
@@ -73,7 +72,7 @@
 
     <!--word template-->
     <script type="text/x-template" id="word-template">
-    	<span v-for="content in screen">
+    	<span v-for="content in screen" class="{{ content.Animation.Name }}">
         	{{ content.content }}
         </span>
     </script>
@@ -84,9 +83,9 @@
     </script>
 
     <!--root start from here-->
-    <div class="phone">
+    <div class="phone"> 
     	<div class="showPage">
-    		<screen :screens="screens"></screen>
+    		<screen :screens="screens" ></screen>
     	</div>
     </div>
 <pre>{{screens | json}}</pre>
