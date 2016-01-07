@@ -10,21 +10,25 @@ var screens = [
 Vue.component('screen',{
 	template:'#screen-template', 
 	props:{
-		screens:Array,
-		newAnimation:Object
-	},
+		screens:Array 
+	}, 
 	methods:{
 
 	},
 	components:{
 		'word':{
 			template:'#word-template',
-			props:{
-				screen:Array  
+			props:{ 
+				screen:Array,
+				index:Number 
 			},
 			methods:{
-				 dragLocation:function (X,Y){
+				 dragLocation:function(){
+					var elX = this.index.offsetLeft;
+					var elY = this.index.offsetTop;
 
+					console.log(elX);
+					console.log(elY);
 				 }
 			}
 		},
@@ -35,7 +39,7 @@ Vue.component('screen',{
 				screen:Array
 			},
 			methods:{
-
+				 
 			}
 
 		}
@@ -43,10 +47,9 @@ Vue.component('screen',{
   
 }) 
  
- 
 //init Vue 
 new Vue({
-	el:'#content',
+	el:'#box',
 	data:{ 
 		 screens:screens,
 		 newAnimation:''
@@ -98,4 +101,3 @@ new Vue({
 
 	}
 })
- 
