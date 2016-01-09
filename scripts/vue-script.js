@@ -9,15 +9,25 @@ new Vue({
 	el:'#box',
 	data:{ 
 		 screens:screens,
-		 newAnimation:'rotate',
-		 duration:'1s',
-		 delay:'2s',
-		 newImg:''
+		 newWordAnimation:'rotate',
+		 wordDuration:'1s',
+		 wordDelay:'2s',
+		 newPicAnimation:'rotate',
+		 picDuration:'1s',
+		 picDelay:'2s',
+		 newImg:'',
+		 bgImg:''
 	},
 	methods:{
 		addScreen:function(){ 
 		  screens.push([]);
 		},  
+		addScreenBgImg:function(screen){
+			screen.push({
+				bgImg:this.bgImg
+			});
+			this.bgImg='';
+		},
 		addWord:function(screen){ 
 		    screen.push({
 		  	    type:1, 
@@ -28,9 +38,9 @@ new Vue({
 					Y:10 
 				},
 				Animation:{
-					Name:this.newAnimation,
-					Speed:this.duration,
-					Delay:this.delay
+					Name:this.newWordAnimation,
+					Speed:this.wordDuration,
+					Delay:this.wordDelay
 				}
 		  }); 
 		}, 
@@ -44,9 +54,9 @@ new Vue({
 					Y:10 
 				},
 				Animation:{
-					Name:'',
-					Speed:1000,
-					Delay:500
+					Name:this.newPicAnimation,
+					Speed:this.picDuration,
+					Delay:this.picDelay
 				}
 			});
 			this.newImg='';

@@ -11,19 +11,18 @@ Vue.component('screen',{
 		'word':{
 			template:'#word-template',
 			props:{ 
-				screen:Array,
-				index:Number 
+				screen:Array 
 			},
 			methods:{
-				 dragLocation:function(sender){
-				 	
- 					var loc=parentOffset(sender.$event.target)
+				 dragLocation:function(sender){ 
+ 					var loc=parentOffset(sender.$event.target);
 
-					var elX = loc.left;
-					var elY = loc.top;
+					var elX = parseInt(loc.left);
+					var elY = parseInt(loc.top);
+
 					console.log(elX);
-					console.log(elY);
-				 }
+					console.log(elY); 
+				}
 			}
 		},
 
@@ -34,11 +33,9 @@ Vue.component('screen',{
 			},
 			methods:{
 				 
-			}
-
+			} 
 		}
 	}
-  
 }) 
 
 function parentOffset(el){
@@ -49,7 +46,6 @@ function parentOffset(el){
  		left:senderOffset.left-parentOffset.left,
  		top:senderOffset.top-parentOffset.top,
  		width:senderOffset.width,
- 		height:senderOffset.height
-
+ 		height:senderOffset.height 
  	}
 }

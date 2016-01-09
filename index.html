@@ -25,27 +25,25 @@
     	 	    <li>
     	 	    	Background:<input type="file"></input></p>
     	 			<p>
-    	 		    	Or enter a img link:<input type="text"></input>
-    	 			    <button class="button">Upload Img</button>
+    	 		    	Or enter a img link:<input type="text" v-model="bgImg"></input>
+    	 			    <button class="button" @click="addScreenBgImg(screen)">Upload Img</button>
     	 			</p>
     	 	    </li>
     	 	    <!--http://p4.music.126.net/5MSBV-uxRl65dgikDWibLQ==/7710875046296462.jpg-->
 
     	 		<li>
-    	 			<select v-model="newAnimation">
+    	 			<select v-model="newWordAnimation">
     	 				<option>rotate</option>
     	 				<option>flipX</option>
     	 				<option>zoomIn</option>
     	 				<option>bounce</option>
-    	 			</select> 
-
-    	   运动秒数:<select v-model="duration">
+    	 			</select>  
+    	   运动秒数:<select v-model="wordDuration">
     	 		        <option>1s</option>
     	 		        <option>1.5s</option>
     	 		        <option>2s</option>
-    	 		    </select> 
-
-    	   延迟秒数:<select v-model="delay">
+    	 		    </select>  
+    	   延迟秒数:<select v-model="wordDelay">
     	                 <option>2s</option> 
     	                 <option>3s</option>
     	                 <option>4s</option>
@@ -63,10 +61,25 @@
 
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
-    	 			<p>
-    	 			   Or enter a img link:<input type="text" v-model="newImg"></input>
-    	 			   <button class="button " @click="addImg(screen)">Upload Img</button>
-    	 			</p>
+    	 			<p>Or enter a img link:<input type="text" v-model="newImg"></input></p>
+    	 			<select v-model="newPicAnimation">
+    	 				<option>rotate</option>
+    	 				<option>flipX</option>
+    	 				<option>zoomIn</option>
+    	 				<option>bounce</option>
+    	 			</select>  
+    	   运动秒数:<select v-model="picDuration">
+    	 		        <option>1s</option>
+    	 		        <option>1.5s</option>
+    	 		        <option>2s</option>
+    	 		    </select>  
+    	   延迟秒数:<select v-model="picDelay">
+    	                 <option>2s</option> 
+    	                 <option>3s</option>
+    	                 <option>4s</option>
+    	                 <option>5s</option> 
+    	 		    </select>
+    	 			   <button class="button " @click="addImg(screen)">Upload Img</button> 
     	 		</li> 
     	 		</br>
 
@@ -78,8 +91,8 @@
 
     <!--screen template-->
     <script type="text/x-template" id="screen-template">
-    	<div v-for="screen in screens" class="screen" >  
-    		 <word :screen="screen" :index="$index"></word> 
+    	<div v-for="screen in screens" class="screen" ><!--style="background-image: url({{ screen.bgImg }})"-->  
+    		 <word :screen="screen" ></word> 
     		 <picture :screen="screen"></picture>
     	</div>
     </script>
@@ -101,6 +114,8 @@
     	<img 
     	v-for="content in screen"
     	v-if="content.type == 2"
+    	class="{{ content.Animation.Name }}"  
+    	style="animation-duration: {{ content.Animation.Speed }}; animation-delay: {{ content.Animation.Delay }}"
     	src="{{ content.src }}">
     </script>
 
