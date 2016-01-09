@@ -1,58 +1,18 @@
- Vue.config.debug = true;
+ 
 //data model 
-var screens = [
-    
+var screens = [ 
   
  ];
-//vue component 
- 
-//screen component                    
-Vue.component('screen',{
-	template:'#screen-template', 
-	props:{
-		screens:Array 
-	}, 
-	methods:{
-
-	},
-	components:{
-		'word':{
-			template:'#word-template',
-			props:{ 
-				screen:Array,
-				index:Number 
-			},
-			methods:{
-				 dragLocation:function(){
-					var elX = this.index.offsetLeft;
-					var elY = this.index.offsetTop;
-
-					console.log(elX);
-					console.log(elY);
-				 }
-			}
-		},
-
-		'image':{
-			template:'image-template',
-			props:{
-				screen:Array
-			},
-			methods:{
-				 
-			}
-
-		}
-	}
-  
-}) 
  
 //init Vue 
 new Vue({
 	el:'#box',
 	data:{ 
 		 screens:screens,
-		 newAnimation:''
+		 newAnimation:'rotate',
+		 duration:'1s',
+		 delay:'2s',
+		 newImg:''
 	},
 	methods:{
 		addScreen:function(){ 
@@ -69,16 +29,15 @@ new Vue({
 				},
 				Animation:{
 					Name:this.newAnimation,
-					Speed:1000,
-					Delay:500
+					Speed:this.duration,
+					Delay:this.delay
 				}
-		  });
-		  this.newAnimation='';
+		  }); 
 		}, 
 		addImg:function(screen){
 			screen.push({
 				type:2, 
-				src:'haha',
+				src:this.newImg,
 				isDisplay:true,
 				Location:{
 					X:10,
@@ -90,6 +49,7 @@ new Vue({
 					Delay:500
 				}
 			});
+			this.newImg='';
 		},
 		removeWord:function(screen,content){
 		   screen.$remove(content);

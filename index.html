@@ -3,6 +3,7 @@
 <head>
 	<title>Vue drag compoments demo</title>
 	<meta charset="utf-8">
+	<script type="text/javascript" src="scripts/zepto.js"></script>
 	<script type="text/javascript" src="scripts/vue.js"></script> 
 	<link rel="stylesheet" type="text/css" href="style/animation/animation.css">
 	<link rel="stylesheet" type="text/css" href="style/animation/animation-keyframes.css">
@@ -25,7 +26,7 @@
     	 	    	Background:<input type="file"></input></p>
     	 			<p>
     	 		    	Or enter a img link:<input type="text"></input>
-    	 			    <button class="button" @click="addImg(screen)">Upload Img</button>
+    	 			    <button class="button">Upload Img</button>
     	 			</p>
     	 	    </li>
     	 	    <!--http://p4.music.126.net/5MSBV-uxRl65dgikDWibLQ==/7710875046296462.jpg-->
@@ -37,12 +38,25 @@
     	 				<option>zoomIn</option>
     	 				<option>bounce</option>
     	 			</select> 
+
+    	   运动秒数:<select v-model="duration">
+    	 		        <option>1s</option>
+    	 		        <option>1.5s</option>
+    	 		        <option>2s</option>
+    	 		    </select> 
+
+    	   延迟秒数:<select v-model="delay">
+    	                 <option>2s</option> 
+    	                 <option>3s</option>
+    	                 <option>4s</option>
+    	                 <option>5s</option> 
+    	 		    </select> 
     	 			<button class="button light" @click="addWord(screen)">Add</button>
     	 		</li> 
 
     	 		<li>
-    	 		    <p v-for="content in screen">  
-    	 		        <input v-model="content.content"></input>
+    	 		    <p v-for="content in screen" v-if="content.type == 1">  
+    	 		        <input v-model="content.content"></input> 
     	 		        <span class="button delete" @click="removeWord(screen,content)">X</span>
     	 		    </p> 
     	 		</li>
@@ -50,8 +64,8 @@
     	 		<li>
     	 			<p>Upload a image:<input type="file"></input></p>
     	 			<p>
-    	 			   Or enter a img link:<input type="text" name="newImg" v-model="newImg"></input>
-    	 			   <button class="button">Upload Img</button>
+    	 			   Or enter a img link:<input type="text" v-model="newImg"></input>
+    	 			   <button class="button " @click="addImg(screen)">Upload Img</button>
     	 			</p>
     	 		</li> 
     	 		</br>
@@ -60,26 +74,34 @@
     	 	    </ul>  
         </div> 
         <!--every screen's detail choice template--> 
-    </div>
-
+    </div> 
 
     <!--screen template-->
     <script type="text/x-template" id="screen-template">
-    	<div v-for="screen in screens" class="screen" id={{$index}}>  
-    		  <word :screen="screen" :index="$index" ></word>
+    	<div v-for="screen in screens" class="screen" >  
+    		 <word :screen="screen" :index="$index"></word> 
+    		 <picture :screen="screen"></picture>
     	</div>
     </script>
 
     <!--word template-->
     <script type="text/x-template" id="word-template">
-    	<span v-for="content in screen" id="{{$index}}" class="{{ content.Animation.Name }}"  @click="dragLocation">
+    	<span 
+    	v-for="content in screen"  
+    	v-if="content.type == 1"
+    	class="{{ content.Animation.Name }}" 
+    	@click="dragLocation(this)" 
+    	style="animation-duration: {{ content.Animation.Speed }}; animation-delay: {{ content.Animation.Delay }}" > 
         	{{ content.content }}
-        </span>
+        </span> 
     </script>
 
     <!--image template-->
     <script type="text/x-tempalte" id="image-template">
-    	<img src="{{  }}" v-for="">
+    	<img 
+    	v-for="content in screen"
+    	v-if="content.type == 2"
+    	src="{{ content.src }}">
     </script>
 
     <!--root start from here-->
@@ -88,10 +110,13 @@
     		<screen :screens="screens" ></screen>
     	</div>
     </div>
+
 <pre>{{screens | json}}</pre>
+
 </div>
 </body>
 <script type="text/javascript" src="scripts/script.js"></script> 
-<script type="text/javascript" src="scripts/vue-script.js"></script> 
 <script type="text/javascript" src="scripts/component.js"></script>
+<script type="text/javascript" src="scripts/vue-script.js"></script> 
+ 
 </html>
