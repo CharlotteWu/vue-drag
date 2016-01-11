@@ -45,6 +45,9 @@ new Vue({
 		  }); 
 		}, 
 		addImg:function(screen){
+			if(this.newImg == '') 
+				return false; 
+			else 
 			screen.push({
 				type:2, 
 				src:this.newImg,
@@ -59,7 +62,7 @@ new Vue({
 					Delay:this.picDelay
 				}
 			});
-			this.newImg='';
+			this.newImg=''; 
 		},
 		removeWord:function(screen,content){
 		   screen.$remove(content);

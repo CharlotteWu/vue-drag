@@ -1,18 +1,22 @@
 /*--------------------Rotate----------------------------*/
 @keyframes rotate{
 	from{
+		opacity: 0;
 		transform:rotate(0deg);
 	}
 	to{
+		opacity: 1;
 		transform: rotate(360deg);
 	}
 }
 
 @-webkit-keyframes rotate{
 	from{
+		opacity: 0;
 		transform:rotate(0deg);
 	}
 	to{
+		opacity: 1;
 		transform: rotate(360deg);
 	}
 }
@@ -59,6 +63,7 @@
 
 @keyframes zoomIn{
 	0%{
+		opacity: 0;
 		transform: scale(0);
 	}
 	50%{
@@ -68,12 +73,14 @@
 		transform: scale(0.9);
 	}
 	100%{
+		opacity: 1
 		transform: scale(1);
 	}
 }
 
 @-webkit-keyframes zoomIn{
 	0%{
+		opacity: 0;
 		transform: scale(0);
 	}
 	50%{
@@ -83,6 +90,7 @@
 		transform: scale(0.9);
 	}
 	100%{
+		opacity: 1
 		transform: scale(1);
 	}
 }
@@ -90,6 +98,7 @@
 /*--------------------zoomIn----------------------------*/
 @keyframes zoomOut{
 	0%{
+		opacity: 0;
 		transform: scale(1);
 	}
 	50%{
@@ -99,12 +108,14 @@
 		transform: scale(1);
 	}
 	100%{
+		opacity: 1;
 		transform: scale(0);
 	}
 }
 
 @-webkit-keyframes zoomOut{
 	0%{
+		opacity: 0;
 		transform: scale(1);
 	}
 	50%{
@@ -114,6 +125,7 @@
 		transform: scale(1);
 	}
 	100%{
+		opacity: 1;
 		transform: scale(0);
 	}
 }
@@ -121,24 +133,28 @@
 /*--------------------SlideToLeft----------------------------*/
 @keyframes slideToLeft{
 	0%{
+		opacity: 0;
 		transform: translateX(-100%);
 	}
 	75%{
 		transform: translateX(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0);
 	}
 }
 
 @-webkit-keyframes slideToLeft{
 	0%{
+		opacity: 0;
 		transform: translateX(-100%);
 	}
 	75%{
 		transform: translateX(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0);
 	}
 }
@@ -146,48 +162,56 @@
 /*--------------------SlideToRight----------------------------*/
 @keyframes slideToRight{
 	0%{
+		opacity: 0;
 		transform: translateX(100%);
 	}
 	75%{
 		transform: translateX(-10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0);
 	}
 }
 
 @-webkit-keyframes slideToRight{
 	0%{
+		opacity: 0;
 		transform: translateX(100%);
 	}
 	75%{
 		transform: translateX(-10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0);
 	}
 }
 /*--------------------SlideToTop----------------------------*/
 @keyframes slideToTop{
 	0%{
+		opacity: 0;
 		transform: translateY(100%);
 	}
 	75%{
 		transform: translateY(-10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateY(0);
 	}
 }
 
 @-webkit-keyframes slideToTop{
 	0%{
+		opacity: 0;
 		transform: translateY(100%);
 	}
 	75%{
 		transform: translateY(-10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateY(0);
 	}
 }
@@ -195,24 +219,28 @@
 /*--------------------SlideToBottom----------------------------*/
 @keyframes slideToBottom{
 	0%{
+		opacity: 0;
 		transform: translateY(-100%);
 	}
 	75%{
 		transform: translateY(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateY(0);
 	}
 }
 
 @-webkit-keyframes slideToBottom{
 	0%{
+		opacity: 0;
 		transform: translateY(-100%);
 	}
 	75%{
 		transform: translateY(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateY(0);
 	}
 }
@@ -266,12 +294,14 @@
 /*--------------------rollIn----------------------------*/
 @keyframes rollIn{
 	0%{
+		opacity: 0;
 		transform: rotate(-20deg) translate(-50%,-100%);
 	}
 	75%{
 		transform: rotate(-5deg) translate(0,10px);
 	}
     100%{
+    	opacity: 1;
     	transform: rotate(0) translate(0);
     }
 
@@ -279,12 +309,14 @@
 
 @-webkit-keyframes rollIn{
 	0%{
+		opacity: 1;
 		transform: rotate(-20deg) translate(-50%,-100%);
 	}
 	75%{
 		transform: rotate(-5deg) translate(0,10px);
 	}
     100%{
+    	opacity: 1;
     	transform: rotate(0) translate(0);
     }
 }
@@ -292,12 +324,14 @@
 /*--------------------rollOut----------------------------*/
 @keyframes rollOut{
 	0%{
+		opacity: 0;
 		transform: rotate(0) translate(0,10px);
 	}
 	50%{
 		transform: rotate(-5deg) translate(0);
 	}
     100%{
+    	opacity: 1;
     	transform: rotate(-5deg) translate(100%,-50%);
     }
 
@@ -305,12 +339,14 @@
 
 @-webkit-keyframes rollOut{
 	0%{
+		opacity: 0;
 		transform: rotate(0) translate(0,10px);
 	}
 	50%{
 		transform: rotate(-5deg) translate(0);
 	}
     100%{
+    	opacity: 1;
     	transform: rotate(-5deg) translate(100%,-50%);
     }
 
@@ -319,48 +355,56 @@
 /*--------------------SwapLeft----------------------------*/
 @keyframes swapLeft{
 	0%{
+		opacity: 0;
 		transform: scale(0) translateX(0);
 	}
 	20%{
 		transform: scale(.4) translateX(-50%);
 	}  
 	100%{
+		opacity: 1;
 		transform: scale(1) translateX(0);
 	} 
 }
 
 @-webkit-keyframes swapLeft{
 	0%{
+		opacity: 0;
 		transform: scale(0) translateX(0);
 	}
 	20%{
 		transform: scale(.4) translateX(-50%);
 	}  
 	100%{
+		opacity: 1;
 		transform: scale(1) translateX(0);
 	} 
 }
 /*--------------------SwapRight----------------------------*/
 @keyframes swapRight{
 	0%{
+		opacity: 0;
 		transform: scale(0) translateX(0);
 	}
 	20%{
 		transform: scale(.2) translateX(50%);
 	}  
 	100%{
+		opacity: 1;
 		transform: scale(1) translateX(0);
 	} 
 }
 
 @-webkit-keyframes swapLeft{
 	0%{
+		opacity: 0;
 		transform: scale(0) translateX(0);
 	}
 	20%{
 		transform: scale(.2) translateX(50%);
 	}  
 	100%{
+		opacity: 1;
 		transform: scale(1) translateX(0);
 	} 
 }
@@ -371,24 +415,28 @@
 /*--------------------Brake----------------------------*/
 @keyframes brake{
 	0%{
+		opacity: 0;
 		transform: translateX(-100%) skew(0deg);
 	}  
 	90%{
 		transform: translateX(0) skew(-30deg);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0) skew(0deg);
 	}
 }
 
 @-webkit-keyframes brake{
 	0%{
+		opacity: 0;
 		transform: translateX(-100%) skew(0deg);
 	}  
 	90%{
 		transform: translateX(0) skew(-30deg);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0) skew(0deg);
 	}
 }
@@ -396,24 +444,28 @@
 /*--------------------Swing----------------------------*/
 @keyframes swing{
 	0%{
+		opacity: 0;
 		transform: rotate(30deg);
 	}
 	60%{
 		transform: rotate(-30deg);
 	} a
 	100%{
+		opacity: 1;
 		transform: rotate(0);
 	} 
 }
 
 @-webkit-keyframes swing{
 	0%{
+		opacity: 0;
 		transform: rotate(30deg);
 	}
 	50%{
 		transform: rotate(-30deg);
 	} 
 	100%{
+		opacity: 1;
 		transform: rotate(0);
 	} 
 }
@@ -421,6 +473,7 @@
 /*--------------------tada----------------------------*/
 @keyframes tada{
 	0%{
+		opacity: 0;
 		transform: rotate(-30deg);
 	}
 	65%{
@@ -436,12 +489,14 @@
 		transform: rotate(10deg);
 	}
 	100%{
+		opacity: 1;
 		transform: rotate(0deg);
 	}
 }
 
 @-webkit-keyframes tada{
 	0%{
+		opacity: 0;
 		transform: rotate(-30deg);
 	}
 	65%{
@@ -457,12 +512,14 @@
 		transform: rotate(10deg);
 	}
 	100%{
+		opacity: 1;
 		transform: rotate(0deg);
 	}
 }
 /*--------------------rubber----------------------------*/
 @keyframes rubber{
 	0%{
+		opacity: 0;
 		transform: scaleX(1);
 	}
 	70%{
@@ -475,12 +532,14 @@
 		transform: scaleX(1.1) scaleY(1) ;
 	}  
 	100%{
+		opacity: 1;
 		transform: scaleX(1) scaleY(1);
 	}
 }
 
 @-webkit-keyframes rubber{
 	0%{
+		opacity: 0;
 		transform: scaleX(1);
 	}
 	70%{
@@ -493,6 +552,7 @@
 		transform: scaleX(1.1) scaleY(1) ;
 	}  
 	100%{
+		opacity: 1;
 		transform: scaleX(1) scaleY(1);
 	}
 }
@@ -500,6 +560,7 @@
 /*--------------------jello----------------------------*/
 @keyframes jello{
 	0%{
+		opacity: 0;
 		transform: skewX(30deg);
 	}
 	10%{
@@ -518,12 +579,14 @@
 		transform: skewX(-10deg);
 	}
 	100%{
+		opacity: 1;
 		transform: skewX(0);
 	}
 }
 
 @-webkit-keyframes jello{
 	0%{
+		opacity: 0;
 		transform: skewX(30deg);
 	}
 	10%{
@@ -542,6 +605,7 @@
 		transform: skewX(-10deg);
 	}
 	100%{
+		opacity: 1;
 		transform: skewX(0);
 	}
 }
@@ -549,6 +613,7 @@
 /*--------------------wobble----------------------------*/
 @keyframes wobble{
     0%{
+    	opacity: 0;
     	transform: rotate(10deg);
     } 
     25%{
@@ -558,12 +623,14 @@
     	transform: rotate(10deg);
     }
     100%{
+    	opacity: 1;
     	transform: rotate(0deg);
     }
 }
 
 @-webkit-keyframes wobble{
     0%{
+    	opacity: 0;
     	transform: rotate(10deg);
     } 
     25%{
@@ -573,6 +640,7 @@
     	transform: rotate(10deg);
     }
     100%{
+    	opacity: 1;
     	transform: rotate(0deg);
     }
 }
@@ -580,6 +648,7 @@
 /*--------------------shake----------------------------*/
 @keyframes shake{
 	0%{
+		opacity: 0;
 		transform: translateX(-10px);
 	}
 	25%{
@@ -592,12 +661,14 @@
 		transform: translateX(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0px);
 	}
 }
 
 @-webkit-keyframes shake{
 	0%{
+		opacity: 0;
 		transform: translateX(-10px);
 	}
 	25%{
@@ -610,6 +681,7 @@
 		transform: translateX(10px);
 	}
 	100%{
+		opacity: 1;
 		transform: translateX(0px);
 	}
 
@@ -618,6 +690,7 @@
 /*--------------------bounce----------------------------*/
 @keyframes bounce{
 	0%{
+		opacity: 0;
 		transform: translate(-50%,-50%);
 	}
 	13%{
@@ -642,12 +715,14 @@
 		transform: translate(-2%,-5%);
 	}
 	100%{
+		opacity: 1;
 		transform: translate(0,0);
 	}
 }
 
 @-webkit-keyframes bounce{
 	0%{
+		opacity: 0;
 		transform: translate(-50%,-50%);
 	}
 	13%{
@@ -672,6 +747,7 @@
 		transform: translate(-2%,-5%);
 	}
 	100%{
+		opacity: 1;
 		transform: translate(0,0);
 	}
 }

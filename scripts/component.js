@@ -14,14 +14,44 @@ Vue.component('screen',{
 				screen:Array 
 			},
 			methods:{
-				 dragLocation:function(sender){ 
- 					var loc=parentOffset(sender.$event.target);
+				 dragLocation:function(sender,event){ 
+				 	var event = window.event || event; 
+				 	var el = sender.$event.target;
+ 					var loc= parentOffset(el);
+ 					var screenX =loc.parentWidth;
+ 					var screenY =loc.parentHieght;
 
-					var elX = parseInt(loc.left);
-					var elY = parseInt(loc.top);
+ 					var mouseX = event.clientX - loc.screenLeft +'px';
+ 					var mouseY = event.clientY - loc.screenTop+'px';
 
-					console.log(elX);
-					console.log(elY); 
+					var startX = parseInt(loc.left);
+					var startY = parseInt(loc.top); 
+
+					var deltaX = mouseX - startX;
+					var deltaY = mouseY - startY;
+
+					//el.style.left = (elX/screenX)*100 + '%';
+					//el.style.top = (elY/screenY)*100 + '%';  
+
+					 console.log(mouseX);
+					 console.log(mouseY);
+
+					 el.addEventListener("mousemove",function (){
+	                //console.log('haha');  
+						el.style.left = startX + 5 + 'px';
+						el.style.top =  startY + 5 + 'px'; 
+
+					});
+					//console.log(screenX);
+					//console.log(screenY); 
+
+					 
+
+					el.onmouseup = function(){
+						//console.log('wawa');
+						
+					}
+
 				}
 			}
 		},
@@ -46,6 +76,12 @@ function parentOffset(el){
  		left:senderOffset.left-parentOffset.left,
  		top:senderOffset.top-parentOffset.top,
  		width:senderOffset.width,
- 		height:senderOffset.height 
+ 		height:senderOffset.height,
+ 		parentWidth: parentOffset.width,
+ 		parentHieght: parentOffset.height,
+ 		screenLeft:senderOffset.left,
+ 		screenTop:senderOffset.top
  	}
 }
+
+ 
